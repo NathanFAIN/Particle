@@ -56,9 +56,9 @@ void manage_key_window(screen_t *screen, const sfKeyCode *key)
         // On fait apparaitre 20 particules à la position du curseur:
         pos = sfMouse_getPositionRenderWindow(screen->window);
         add_particle(&screen->particle_environment, screen->particle, \
+        20, (sfVector2f){pos.x, pos.y});
         // -------------------------------------------------------------------
 
-        20, (sfVector2f){pos.x, pos.y});
     } else if (*key == sfKeyEscape) {
         sfRenderWindow_close(screen->window);
     }
