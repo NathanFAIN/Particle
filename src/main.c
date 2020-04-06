@@ -72,18 +72,21 @@ void display_window(screen_t *screen)
         manage_key_window(screen, &screen->key);
 
         // -------------------------------------------------------------------
-        // On met à jour tout les particules en vie:
-        update_all_particles(&screen->particle_environment, screen->particle);
+        // On met à jour tout les particules:
+        for (size_t index = 0; index != PARICULE_MAX; index++)
+            update_particle(&screen->particle_environment, \
+            &screen->particle[index]);
         // -------------------------------------------------------------------
 
         sfRenderWindow_clear(screen->window, sfBlack);
 
         // -------------------------------------------------------------------
-        // On affiche tout les particules en vie:
-        display_all_particles(screen->window, screen->particle, \
+        // On affiche tout les particules:
+        for (size_t index = 0; index != PARICULE_MAX; index++)
+            display_particle(screen->window, &screen->particle[index], \
+            screen->particle_environment.circle_shape);
         // -------------------------------------------------------------------
 
-        screen->particle_environment.circle_shape);
         sfRenderWindow_display(screen->window);
     }
 }

@@ -65,25 +65,19 @@ struct screen_s {
     particle_environment_t particle_environment;
 };
 
-// Affiche une particule
-void display_particle(sfRenderWindow *window, const particle_t *particule, sfCircleShape *circle_shape);
-
-// Affiche toutes les particules
-void display_all_particles(sfRenderWindow *window, const particle_t *particule, sfCircleShape *circle_shape);
-
-// Met à jour une particule
-void update_particle(const particle_environment_t *particle_environment, particle_t *particule);
-
-// Met à jour toutes les particules
-void update_all_particles(const particle_environment_t *particle_environment, particle_t *particule);
+// Initialise l'environnement des particules (vitesse, vélocité, gravité, ...)
+void init_particle_environment(particle_environment_t *particle_environment, const sfVector2f angle, const sfVector2f gravity, const sfUint8 alpha);
 
 // Initialise une particule
 void init_particule(const particle_environment_t *particle_environment, particle_t *particule, const sfVector2f pos);
 
+// Affiche une particule
+void display_particle(sfRenderWindow *window, const particle_t *particule, sfCircleShape *circle_shape);
+
+// Met à jour une particule
+void update_particle(const particle_environment_t *particle_environment, particle_t *particule);
+
 // Rend particle_num particules actives
 void add_particle(const particle_environment_t *particle_environment, particle_t *particule, const size_t particle_num, const sfVector2f pos);
-
-// Initialise l'environnement des particules (vitesse, vélocité, gravité, ...)
-void init_particle_environment(particle_environment_t *particle_environment, const sfVector2f angle, const sfVector2f gravity, const sfUint8 alpha);
 
 #endif

@@ -7,7 +7,7 @@
 
 //----------------------------------------------------------------------------
 // Voici le fichier que ou tu devras coder.
-// Il y a 7 fonctions à faire, bonne chance!
+// Il y a 5 fonctions à faire, bonne chance!
 // (N'hésites pas à poser des questions si quelque chose n'est pas clair)
 //----------------------------------------------------------------------------
 
@@ -63,6 +63,7 @@ particle_t *particule, const sfVector2f pos)
 
 /*
 Affiches un cercle (ta particule) à la bonne taille, couleur et position.
+(Le faire si uniquement la particule est en vie: particule->living == true)
 Pour cela, tu peux te servire du sfCircleShape.
 */
 void display_particle(sfRenderWindow *window, const particle_t *particule, \
@@ -74,41 +75,15 @@ sfCircleShape *circle_shape)
 }
 
 /*
-Affiches toutes les particules en vie dans le tableau.
-Pour cela, tu peux te servire de la fonction display_particle().
-*/
-void display_all_particles(sfRenderWindow *window, \
-const particle_t *particule, sfCircleShape *circle_shape)
-{
-    (void)window;
-    (void)particule;
-    (void)circle_shape;
-}
-
-/*
 Mets à jour la particule à l'aide des caractéristiques de particle_environment.
 (Le faire si uniquement la particule est en vie: particule->living == true)
 Composantes à mettre à jour:
 - color (le alpha)
-- vel
-- pos
+- vel (+= gravity)
+- pos (+= vel * speed)
 - living (parfois)
 */
 void update_particle(const particle_environment_t *particle_environment, \
-particle_t *particule)
-{
-    (void)particle_environment;
-    (void)particule;
-}
-
-/*
-Mets à jour toutes les particules en vie dans le tableau.
-Pour cela, tu peux te servire de la fonction update_particle().
-N'oublies pas de te servire de la sfClock présent dans particle_environment
-pour ne pas mettre à jour à chaque tour de boucle.
-(sinon n'animation risque d'etre trop rapide...)
-*/
-void update_all_particles(const particle_environment_t *particle_environment, \
 particle_t *particule)
 {
     (void)particle_environment;
