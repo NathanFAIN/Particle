@@ -25,7 +25,7 @@
 #define WINDOW_NAME "~"
 
 #define PARICULE_ANGLE_MIN (0)
-#define PARICULE_ANGLE_MAX (6.2832f)
+#define PARICULE_ANGLE_MAX (M_PI * 2)
 #define GRAVITY_X (1.0f * 0)
 #define GRAVITY_Y (1.0f * 0)
 #define ALPHA (1)
